@@ -17,21 +17,17 @@ public class LocationMapper {
                     Location location;
                     String[] separetedRecord = line.split(";");
                     String name = separetedRecord[4];
-                    String voivodship = voivodshipMap.get(separetedRecord[0]);
-                    LocationType locationType;
+                    String voivodship = voivodshipMap.get(Integer.valueOf(separetedRecord[0]));
 
-                    switch (separetedRecord[5]) {
+                    switch (separetedRecord[5].split(",")[0]) {
                         case "gmina wiejska":
-                            locationType = LocationType.VILLAGE;
-                            location = new Village(name, locationType, voivodship);
+                            location = new Village(name, LocationType.VILLAGE, voivodship);
                             break;
-                        case "gmina wiejsko-miejska":
-                            locationType = LocationType.URBAN_RURAL;
-                            location = new UrbanRural(name, locationType, voivodship);
+                        case "gmina miejsko-wiejska":
+                            location = new UrbanRural(name, LocationType.URBAN_RURAL, voivodship);
                             break;
                         case "gmina miejska":
-                            locationType = LocationType.CITY;
-                            location = new City(name, locationType, voivodship);
+                            location = new City(name, LocationType.CITY, voivodship);
                             break;
                         default:
                             throw new IllegalStateException("Unexpected value: " + separetedRecord[5]);
