@@ -19,14 +19,15 @@ public class LocationAnalyzer {
                 .orElseThrow();
     }
 
-    public static Map<String, Location> getLongestNamedLocationInVoivodship(List<Location> locationList) {
-        Map<String, Location> longestNamedLocationsInVoivodshipList = new HashMap<>();
+    public static Map<String, List<Location>> getLongestNamedLocationInVoivodship(List<Location> locationList) {
+        Map<String, List<Location>> longestNamedLocationsInVoivodshipList = new HashMap<>();
         locationList.stream()
                 .collect(Collectors.groupingBy(Location::getVoivodeship))
                 .forEach(
-                        (voivodship, locations) ->
-                                longestNamedLocationsInVoivodshipList.put(voivodship, locations.stream()
-                                        .max(Comparator.comparingInt(location -> location.getName().length())).orElseThrow()));
+                        (voivodship, locations) -> {
+                            List<Location> longestNameLocations = getLongestNamesLocations(locations);
+                            longestNamedLocationsInVoivodshipList.put(voivodship, longestNameLocations);
+                        });
         return longestNamedLocationsInVoivodshipList;
     }
 }
