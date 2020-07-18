@@ -18,12 +18,10 @@ public class GreetingsFileGenerator implements FileGenerator {
     @Override
     public void generateFile() {
         if(!dataFilePath.isEmpty()) {
-            DataLoader dataLoader = new DataLoader();
-            List<String> dataList = dataLoader.loadFromFile(dataFilePath);
-            LocationMapper locationMapper = new LocationMapper();
-            List<Location> locationList = locationMapper.map(dataList);
-            VacationTargetGenerator vacationTargetGenerator = new VacationTargetGenerator();
-            Location location = vacationTargetGenerator.getRandomLocation(locationList);
+            List<String> dataList = DataLoader.loadFromFile(dataFilePath);
+            List<Location> locationList = LocationMapper.map(dataList);
+            Location location = VacationTargetGenerator.getRandomLocation(locationList);
+            
             StringBuilder resultStringBuilder = new StringBuilder();
             resultStringBuilder.append("Name: ")
                     .append(location.getName());

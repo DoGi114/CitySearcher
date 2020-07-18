@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class VoivodshipMapper {
-    public Map<Integer, String> map(List<String> list){
+    public static Map<Integer, String> map(List<String> list){
         Map<Integer, String> voivodshipMap = new HashMap<>();
         list.stream()
                 .filter( record -> !record.isBlank())

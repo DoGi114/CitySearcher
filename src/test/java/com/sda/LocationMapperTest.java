@@ -11,11 +11,11 @@ public class LocationMapperTest {
 
     @Before
     public void setUp(){
-        parsedFile = new DataLoader().loadFromFile("data/TERC.CSV");
+        parsedFile = DataLoader.loadFromFile("data/TERC.CSV");
     }
 
     @Test
     public void mapIsEmptyTest(){
-        Assert.assertTrue(!new LocationMapper().map(parsedFile).isEmpty());
+        Assert.assertTrue(!LocationMapper.map(parsedFile).isEmpty());
     }
 }

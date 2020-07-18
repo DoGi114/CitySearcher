@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class VacationTargetGenerator {
 
-    public Location getRandomLocation(List<Location> locations){
+    public static Location getRandomLocation(List<Location> locations){
         if(!locations.isEmpty()){
             Random randomizer = new Random();
             return locations.get(randomizer.nextInt(locations.size()));
@@ -20,7 +20,7 @@ public class VacationTargetGenerator {
         }
     }
 
-    public Location getRandomLocation(List<Location> locations, LocationType locationType){
+    public static Location getRandomLocation(List<Location> locations, LocationType locationType){
         locations = locations.stream()
                 .filter( location -> location.getType().equals(locationType))
                 .collect(Collectors.toList());

@@ -15,12 +15,12 @@ public class VoivodshipMapperTest {
 
     @Before
     public void setUp(){
-        parsedFile = new DataLoader().loadFromFile("data/TERC.CSV");
+        parsedFile = DataLoader.loadFromFile("data/TERC.CSV");
     }
 
     @Test
     public void mapIsEmptyTest(){
-        Assert.assertTrue(!new VoivodshipMapper().map(parsedFile).isEmpty());
+        Assert.assertTrue(!VoivodshipMapper.map(parsedFile).isEmpty());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class VoivodshipMapperTest {
         expectedMap.put(28, "WARMIŃSKO-MAZURSKIE");
         expectedMap.put(30, "WIELKOPOLSKIE");
 
-        Assert.assertTrue(expectedMap.equals(new VoivodshipMapper().map(parsedFile)));
+        Assert.assertTrue(expectedMap.equals(VoivodshipMapper.map(parsedFile)));
 
     }
 }

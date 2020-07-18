@@ -7,11 +7,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LocationMapper {
-    public List<Location> map(List<String> list) {
-        VoivodshipMapper voivodshipMapper = new VoivodshipMapper();
-        Map<Integer, String> voivodshipMap = voivodshipMapper.map(list);
+    public static List<Location> map(List<String> list) {
+        Map<Integer, String> voivodshipMap = VoivodshipMapper.map(list);
 
-        List<Location> locationList = list.stream()
+        return list.stream()
                 .filter(line -> line.matches(".*;gmina .*;.*"))
                 .map(line -> {
                     Location location;
@@ -35,7 +34,5 @@ public class LocationMapper {
 
                     return location;
                 }).collect(Collectors.toList());
-
-        return locationList;
     }
 }

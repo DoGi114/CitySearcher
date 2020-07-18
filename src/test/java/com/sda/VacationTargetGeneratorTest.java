@@ -14,18 +14,18 @@ public class VacationTargetGeneratorTest {
 
     @Before
     public void setUp(){
-        parsedFile = new DataLoader().loadFromFile("data/TERC.CSV");
-        locationList = new LocationMapper().map(parsedFile);
+        parsedFile = DataLoader.loadFromFile("data/TERC.CSV");
+        locationList = LocationMapper.map(parsedFile);
 
     }
 
     @Test
     public void getRandomLocationTest(){
-        Assert.assertTrue(new VacationTargetGenerator().getRandomLocation(locationList) != null);
+        Assert.assertTrue(VacationTargetGenerator.getRandomLocation(locationList) != null);
     }
 
     @Test
     public void getRandomLocation2(){
-        Assert.assertTrue(new VacationTargetGenerator().getRandomLocation(locationList, LocationType.CITY) != null);
+        Assert.assertTrue(VacationTargetGenerator.getRandomLocation(locationList, LocationType.CITY) != null);
     }
 }

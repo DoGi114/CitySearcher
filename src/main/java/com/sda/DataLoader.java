@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataLoader {
-    public List<String> loadFromFile(String path){
+    public static List<String> loadFromFile(String path){
         try {
             return Files.readAllLines(Paths.get(path));
         } catch (IOException e) {
