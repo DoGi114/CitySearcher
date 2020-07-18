@@ -10,9 +10,7 @@ public class VoivodshipMapper {
         Map<Integer, String> voivodshipMap = new HashMap<>();
         list.stream()
                 .filter( record -> !record.isBlank())
-                .filter( record -> record.split(";")[1].isEmpty())
-                .filter( record -> record.split(";")[2].isEmpty())
-                .filter( record -> record.split(";")[3].isEmpty())
+                .filter( record -> record.contains("województwo"))
                 .forEach( record -> {
                     voivodshipMap.put(Integer.valueOf(record.split(";")[0]), record.split(";")[4]);
                 });

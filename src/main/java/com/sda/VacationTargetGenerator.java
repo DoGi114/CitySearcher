@@ -2,8 +2,6 @@ package com.sda;
 
 import com.sda.model.Location;
 import com.sda.model.LocationType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.util.List;
 import java.util.Random;
