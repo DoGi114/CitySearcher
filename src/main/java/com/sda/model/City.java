@@ -2,7 +2,7 @@ package com.sda.model;
 
 public class City extends Location {
 
-    public City(String name, LocationType type, String voivodeship) {
+    public City(String name, String voivodeship) {
         super(name, LocationType.CITY, voivodeship);
     }
 

@@ -28,13 +28,13 @@ public class LocationMapper {
 
             switch (separatedRecord[5].split(",")[0]) {
                 case "gmina wiejska":
-                    location = new Village(name, LocationType.VILLAGE, voivodship);
+                    location = new Village(name, voivodship);
                     break;
                 case "gmina miejsko-wiejska":
-                    location = new UrbanRural(name, LocationType.URBAN_RURAL, voivodship);
+                    location = new UrbanRural(name, voivodship);
                     break;
                 case "gmina miejska":
-                    location = new City(name, LocationType.CITY, voivodship);
+                    location = new City(name, voivodship);
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + separatedRecord[5]);

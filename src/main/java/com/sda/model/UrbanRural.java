@@ -2,7 +2,7 @@ package com.sda.model;
 
 public class UrbanRural extends Location {
 
-    public UrbanRural(String name, LocationType type, String voivodeship) {
+    public UrbanRural(String name, String voivodeship) {
         super(name, LocationType.URBAN_RURAL, voivodeship);
     }
 
